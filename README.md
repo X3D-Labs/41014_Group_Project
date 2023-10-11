@@ -23,6 +23,10 @@ The project proposes a multitude of tasks and presentation processes. That the t
 5. Project teaser demo outlining the successes/mistakes observed when operating the robot 
 6. Q and A video
 
+### Proposed Flowchart of Scope
+![Flowchart](https://i.ibb.co/sFpbVPH/Picture1.jpg)
+
+
 ## Deliverables
 
 [For README brevity, the deliverables and deadlines can be found here](<Group Project Deliverables>)
@@ -32,8 +36,8 @@ The project proposes a multitude of tasks and presentation processes. That the t
 
 This project will primarily use Python and MATLAB for computing, and ROS for all simulations. 
 
-[Follow the ROS installation guide here](<>)
-[Follow the Python Install Guide here](<>)
+[Follow the ROS installation guide here](http://wiki.ros.org/ROS/Installation)
+[Follow the Python Install Guide here](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 
 ### ROS Launch Files
