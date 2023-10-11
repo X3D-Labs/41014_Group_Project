@@ -21,7 +21,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Group Project Deliverables.md",
                 "mode": "source",
                 "source": false
               }
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Group Project Deliverables.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Group Project Deliverables.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Group Project Deliverables.md"
               }
             }
           }
@@ -157,7 +157,23 @@
   },
   "active": "a9edaee68303749e",
   "lastOpenFiles": [
-    "Group Project Deliverables.md",
-    "README.md"
+    "41014_Group_Project/fetch_gazebo/models/test_zone/meshes/building.png",
+    "41014_Group_Project/fetch_gazebo/models/test_zone/meshes/building.dae",
+    "41014_Group_Project/fetch_gazebo/models/test_zone/model.sdf",
+    "41014_Group_Project/fetch_gazebo/models/test_zone/model.config",
+    "41014_Group_Project/fetch_gazebo/models/test_zone/meshes",
+    "41014_Group_Project/fetch_gazebo/models/demo_cube/model.sdf",
+    "41014_Group_Project/fetch_gazebo/models/demo_cube/model.config",
+    "41014_Group_Project/models/test_zone/meshes/building.png",
+    "41014_Group_Project/models/test_zone/meshes/building.dae",
+    "41014_Group_Project/fetch_gazebo/include/fetch_gazebo/joint_handle.h",
+    "41014_Group_Project/fetch_gazebo/launch/include/head_camera.launch.xml",
+    "41014_Group_Project/fetch_gazebo/launch/include/freight.launch.xml",
+    "41014_Group_project/fetch_gazebo/models/test_zone/meshes/building.png",
+    "41014_Group_project/models/test_zone/meshes/building.png",
+    "fetch_gazebo/fetch_gazebo/models/test_zone/meshes/building.png",
+    "fetch_gazebo/models/test_zone/meshes/building.png",
+    "README.md",
+    "Group Project Deliverables.md"
   ]
 }
