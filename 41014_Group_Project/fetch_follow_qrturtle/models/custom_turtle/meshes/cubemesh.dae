@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+<asset>
+  <contributor>
+    <authoring_tool>meshmixer</authoring_tool>
+  </contributor>
+  <unit name="millimeters" meter="0.001"/>
+  <up_axis>Y_UP</up_axis>
+</asset>
+<library_geometries>
+  <geometry id="mesh1-geometry" name="mesh1-geometry">
+    <mesh>
+        <source id="mesh1-geometry-position">
+        <float_array id="mesh1-geometry-position-array" count="24">0.1 0.1 0.2 -0.1 0.1 0.2 -0.1 -0.1 0.2 0.1 -0.1 0.2 0.1 -0.1 0 -0.1 -0.1 0 -0.1 0.1 0 0.1 0.1 0 </float_array>
+          <technique_common>
+            <accessor source="#mesh1-geometry-position-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh1-geometry-normal">
+        <float_array id="mesh1-geometry-normal-array" count="24">0.333333 0.666667 0.666667 -0.816497 0.408248 0.408248 -0.333333 -0.666667 0.666667 0.816497 -0.408248 0.408248 0.333333 -0.666667 -0.666667 -0.816497 -0.408248 -0.408248 -0.333333 0.666667 -0.666667 0.816497 0.408248 -0.408248 </float_array>
+          <technique_common>
+            <accessor source="#mesh1-geometry-normal-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh1-geometry-color">
+        <float_array id="mesh1-geometry-color-array" count="24">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </float_array>
+          <technique_common>
+            <accessor source="#mesh1-geometry-color-array" count="8" stride="3">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+      <vertices id="mesh1-geometry-vertex">
+        <input semantic="POSITION" source="#mesh1-geometry-position"/>
+      </vertices>
+      <triangles count="12">
+        <input semantic="VERTEX" source="#mesh1-geometry-vertex" offset="0"/>
+        <input semantic="NORMAL" source="#mesh1-geometry-normal" offset="1"/>
+        <input semantic="COLOR" source="#mesh1-geometry-color" offset="2"/>
+          <p>0 0 0 1 1 1 2 2 2 0 0 0 2 2 2 3 3 3 4 4 4 3 3 3 2 2 2 4 4 4 2 2 2 5 5 5 5 5 5 2 2 2 1 1 1 5 5 5 1 1 1 6 6 6 6 6 6 7 7 7 4 4 4 6 6 6 4 4 4 5 5 5 7 7 7 0 0 0 3 3 3 7 7 7 3 3 3 4 4 4 6 6 6 1 1 1 0 0 0 6 6 6 0 0 0 7 7 7 </p>
+      </triangles>
+    </mesh>
+  </geometry>
+</library_geometries>
+<library_visual_scenes>
+  <visual_scene id="MeshMixerScene" name="MeshMixerScene">
+    <node id="Model" name="Model">
+      <node id="mesh1" name="mesh1">
+        <instance_geometry url="#mesh1-geometry">
+        </instance_geometry>
+      </node>
+    </node>
+  </visual_scene>
+</library_visual_scenes>
+<scene>
+  <instance_visual_scene url="#MeshMixerScene"/>
+</scene>
+</COLLADA>

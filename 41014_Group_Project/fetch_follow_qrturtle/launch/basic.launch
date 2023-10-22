@@ -1,0 +1,43 @@
+<launch>
+<arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+<env name="GAZEBO_MODEL_PATH" value="$(find fetch_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+	<arg name="robot" default="fetch"/>
+	<arg name="debug" default="false"/>
+	<arg name="gui" default="true"/>
+	<arg name="headless" default="false"/>
+	<arg name="x_pos" default="0.0"/>
+ 	<arg name="y_pos" default="2.0"/>
+  	<arg name="z_pos" default="0.0"/>
+
+
+	 <!-- spawn turtlebot-->
+	<group ns="turtle_burger">
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+	 <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+	</group>
+
+
+	 <!-- Change turtlebot to teleop -->
+  <arg name="teleop_topic" default="/turtle_burger/cmd_vel"/>
+
+
+
+  <!-- spawn fetch robot -->
+  <include file="$(find fetch_follow_qrturtle)/launch/include/fetch.launch.xml" />
+
+
+
+
+
+	<!-- start with empty world -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+	<arg name="world_name" value="$(find fetch_follow_qrturtle)/worlds/basic.world"/>
+ 	<arg name="paused" value="false"/>
+ 	<arg name="use_sim_time" value="true"/>
+	<arg name="gui" value="true"/>
+	<arg name="recording" value="false"/>
+	<arg name="debug" value="false"/>
+  </include>
+  
+
+</launch>

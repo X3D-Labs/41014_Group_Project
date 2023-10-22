@@ -1,0 +1,20 @@
+<launch>
+
+<env name="GAZEBO_MODEL_PATH" value="$(find fetch_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+	<arg name="robot" default="fetch"/>
+	<arg name="debug" default="false"/>
+	<arg name="gui" default="true"/>
+	<arg name="headless" default="false"/>
+	<!-- start with empty world -->
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+	<arg name="world_name" value="$(find fetch_follow_qrturtle)/worlds/maze.world"/>
+ 	<arg name="paused" value="true"/>
+ 	<arg name="use_sim_time" value="true"/>
+	<arg name="gui" value="true"/>
+	<arg name="recording" value="false"/>
+	<arg name="debug" value="false"/>
+  </include>
+
+	<!-- include a robot :) -->
+  <include file="$(find fetch_gazebo)/launch/include/$(arg robot).launch.xml" />
+</launch>
