@@ -11,11 +11,43 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+   angles
+   control_toolbox
+   gazebo_ros
+   robot_controllers
+   robot_controllers_interface
+   roscpp
+   rospy	
+   std_msgs
+   sensor_msgs
+   roslib
+   control_msgs
+   geometry_msgs
+   cv_bridge
+   image_transport
+   message_generation
+   visp_auto_tracker
+   visp_bridge
+   visp_camera_calibration
+   visp_hand2eye_calibration
+   visp_tracker
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
+# Check for c++11 / c++0x support
+
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+if(COMPILER_SUPPORTS_CXX11)
+    set(CMAKE_CXX_FLAGS "-std=c++11")
+elseif(COMPILER_SUPPORTS_CXX0X)
+    set(CMAKE_CXX_FLAGS "-std=c++0x")
+else()
+    message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+endif()
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -119,11 +151,25 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+include_directories(
+# include
+  ${catkin_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIR}
+  ${GAZEBO_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
+  ${OpenCV_INCLUDE_DIRS}
+)
 
+link_directories(
+  ${GAZEBO_LIBRARY_DIRS}
+)
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/fetch_follow_qrturtle.cpp
 # )
+
+
+add_library(${PROJECT_NAME}-fetchLaserScan src/fetchLaserScanning.cpp)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -135,6 +181,10 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/fetch_follow_qrturtle_node.cpp)
 
+#add_executable(${PROJECT_NAME}-turtlebotControl src/turtlebotControl.cpp)
+add_executable(${PROJECT_NAME}-followTurtlebot src/main.cpp src/followTurtlebot.cpp)
+
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -145,10 +195,16 @@ include_directories(
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+#add_dependencies(${PROJECT_NAME}-turtlebotControl ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(${PROJECT_NAME}-followTurtlebot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+#target_link_libraries(${PROJECT_NAME}-turtlebotControl ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}-followTurtlebot ${catkin_LIBRARIES} ${PROJECT_NAME}-fetchLaserScan ${OpenCV_LIBRARIES})
 
 #############
 ## Install ##
@@ -202,5 +258,9 @@ include_directories(
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
+include_directories(include ${catkin_INCLUDE_DIRS})
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+

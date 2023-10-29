@@ -1,30 +1,68 @@
 <launch>
 <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-<env name="GAZEBO_MODEL_PATH" value="$(find fetch_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+<env name="GAZEBO_RESOURCE_PATH" value="$(find fetch_follow_qrturtle)/models"/>.
 	<arg name="robot" default="fetch"/>
-	<arg name="debug" default="false"/>
+	<arg name="debug" default="false"/> 
 	<arg name="gui" default="true"/>
 	<arg name="headless" default="false"/>
 	<arg name="x_pos" default="0.0"/>
  	<arg name="y_pos" default="2.0"/>
-  	<arg name="z_pos" default="0.0"/>
+  	<arg name="z_pos" default="0.1"/>
+	<arg name="roll" default="0.0"/>
+	<arg name="pitch" default="0.0"/>
+	<arg name="yaw" default="0.1"/>	
+
+<!-- 
+  <include file="$(find fetch_follow_qrturtle)/launch/sdf_spawner.launch">
+     <arg name="robot_name" value="target_box" />
+     <arg name="x" value="0.0" />
+     <arg name="y" value="2.0" />
+     <arg name="z" value="0.33" />
+     <arg name="roll" value="0"/>
+     <arg name="pitch" value="0"/>
+     <arg name="yaw" value="1.5707" />
+     <arg name="sdf_robot_file" value="$(find fetch_follow_qrturtle)/models/target_box/model.sdf" />
+	</include> -->
 
 
-	 <!-- spawn turtlebot-->
-	<group ns="turtle_burger">
-	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
-	 <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+	<group ns = "turtlebot3_burger">
+
+	 <include file="$(find fetch_follow_qrturtle)/launch/sdf_spawner.launch">
+		<arg name="robot_name" value="turtlebot3_burger" />
+		<arg name="x" value="0.0" />
+		<arg name="y" value="4.0" />
+		<arg name="z" value="0" />
+		<arg name="roll" value="0"/>
+		<arg name="pitch" value="0"/>
+		<arg name="yaw" value="1.5707" />
+		<arg name="sdf_robot_file" value="$(find fetch_follow_qrturtle)/models/custom_turtle/model-1_4.sdf" />
+		
+		
+		</include>
+
+	
 	</group>
+<arg name="teleop_topic" default="/turtlebot3_burger/cmd_vel"/> 
 
+
+	 <!-- spawn turtlebot
+	<group ns="turtle_burger">
+	<param name="robot_description" command="$(find xacro)/xacro inorder $(find fetch_follow_qrturtle)/robots/turtlebot3_$(arg model).urdf.xacro"/> 
+	<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -R $(arg roll) -P $(arg pitch) -Y 1.5707 -param robot_description" />
+	 -->
+ 	<!-- <arg name="teleop_topic" default="/turtle_burger/cmd_vel"/>  -->
+	<!-- </group> -->
 
 	 <!-- Change turtlebot to teleop -->
-  <arg name="teleop_topic" default="/turtle_burger/cmd_vel"/>
+
+
+
+  
 
 
 
   <!-- spawn fetch robot -->
   <include file="$(find fetch_follow_qrturtle)/launch/include/fetch.launch.xml" />
-
 
 
 

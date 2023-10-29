@@ -26,7 +26,7 @@ bool laserScanning::obstacleDetection(sensor_msgs::LaserScan::ConstPtr fetchLase
     int range_start = (fetchLaserScan->ranges.size() / 2) - (laserFOV / 2); // Field of View start
     int range_end = (fetchLaserScan->ranges.size() / 2) + (laserFOV / 2); // Field of View end
 
-    for (unsigned int 1 = range_start; i <= range_end; i++)
+    for (unsigned int i = range_start; i <= range_end; i++)
     {
         if (fetchLaserScan->ranges.at(i) < laserReading)
         {
@@ -58,5 +58,5 @@ double laserScanning::readLaserValue(sensor_msgs::LaserScan::ConstPtr fetchLaser
             laserReading = fetchLaserScan->ranges.at(i);
         }
     }
-    return laserReading
+    return laserReading;
 }

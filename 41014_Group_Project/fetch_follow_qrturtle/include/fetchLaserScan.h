@@ -19,7 +19,7 @@
 class laserScanning
 {
 private:
-    double laserReading /*Stores data for laser values*/
+    double laserReading; /*Stores data for laser values*/
 public:
 
     laserScanning();
@@ -27,6 +27,6 @@ public:
     bool obstacleDetection(sensor_msgs::LaserScan::ConstPtr fetchLaserScan);
 
     double readLaserValue(sensor_msgs::LaserScan::ConstPtr fetchLaserScan);
-}    
+}  ;  
 
 #endif //FETCHLASERSCAN_H

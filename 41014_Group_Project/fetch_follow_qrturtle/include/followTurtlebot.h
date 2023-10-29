@@ -27,9 +27,12 @@
 class followTurtlebot
 {
 private:
+    ros::NodeHandle nh_;
+
     ros::Publisher pub_vel_;
     ros::Subscriber sub_marker_;
     ros::Subscriber sub_laser_;
+    geometry_msgs::Twist twistMsg_;
     ros::Subscriber pose_tracker_;
     ros::Time start_time_;
     ros::Duration duration_;
@@ -51,7 +54,7 @@ private:
         double shortest_dist;
         bool detected;
         bool reached;
-    }
+    };
 
     Marker marker_;
 

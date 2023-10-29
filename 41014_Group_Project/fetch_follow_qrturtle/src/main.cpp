@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "followTurtlebot");
     ros::NodeHandle nh;
     std::shared_ptr<followTurtlebot> robot(new followTurtlebot(nh));
-    std::thread vel(&followTurtlebot::fetchStop, robot);
+    std::thread vel(&followTurtlebot::stopFetch, robot);
     ros::spin();
 
     ros::shutdown();

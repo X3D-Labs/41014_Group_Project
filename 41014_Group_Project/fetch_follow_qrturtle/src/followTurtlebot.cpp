@@ -11,17 +11,18 @@
 
 #include "../include/followTurtlebot.h"
 
-followTurtlebot::followTurtlebot(ros::NodeHandle nh) : nh_(nh)
+followTurtlebot::followTurtlebot(ros::NodeHandle nh) 
+    : nh_(nh)
 {
-    marker_sub_ = nh_.subscribe("/aruco_single/position", 1000, &followTurtlebot::CallBackMarker, this);
-    laser_sub_ = nh_.subscribe("/base_scan_raw", 100, &followTurtlebot::CallBackLaser, this);
+    sub_marker_ = nh_.subscribe("/aruco_single/position", 1000, &followTurtlebot::CallBackMarker, this);
+    sub_laser_= nh_.subscribe("/base_scan_raw", 100, &followTurtlebot::CallBackLaser, this);
 
     pub_vel_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 
     marker_.threshold_distance = 1.0 - marker_.head_2_base_offset;
     ROS_INFO_STREAM("Init");
 
-    duration_ = start_time_ - start_time_;
+    duration_ = start_time_ - start_time_; 
 
     sweep_complete_ = false;
     obstacle_reported_ = false;
@@ -32,7 +33,7 @@ followTurtlebot::~followTurtlebot()
 {
 }
 
-void followTurtlebot::CallBackMarker(const geometry_msgs::Vetcor3StampedPtr &msg)
+void followTurtlebot::CallBackMarker(const geometry_msgs::Vector3StampedPtr &msg)
 {
     if (!marker_.detected) // Disp if turtlebot is detected
     {
@@ -119,7 +120,7 @@ void followTurtlebot::CallBackLaser(const sensor_msgs::LaserScanConstPtr &msg)
         {
             if (!obstacle_reported_)
             {
-                ROS_INFO_STREAM("Fetch has encountered obstacle")
+                ROS_INFO_STREAM("Fetch has encountered obstacle");
                 obstacle_reported_ = true;
             }
             twistMsg_.angular.z = 0;
