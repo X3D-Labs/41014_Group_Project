@@ -84,20 +84,29 @@
     <pose>-0.03533 0.002014 0.732871 1.5e-05 -0.007706 -5.2e-05</pose>
     <geometry>
       <mesh>
-        <uri>model://custom_turtle/meshes/cubeMesh.dae</uri>
-        <scale>0.1 0.1 0.1</scale>
+        <uri>model://custom_turtle/meshes/qrcube.dae</uri>
+        <scale>1 1 1</scale>
       </mesh>
     </geometry>
 
 
 
     <material>
+          <lighting>1</lighting>
           <script>
             <uri>model://custom_turtle/materials/scripts</uri>
             <uri>model://custom_turtle/materials/textures</uri>
-            <name>cube</name>
+            <name>qrcube</name>
           </script>
+            <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>0 0 0 1</emissive>
     </material>
+
     <transparency>0</transparency>
     <cast_shadows>1</cast_shadows>
     </visual>

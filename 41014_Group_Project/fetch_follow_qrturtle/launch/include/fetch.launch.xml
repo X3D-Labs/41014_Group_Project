@@ -1,9 +1,9 @@
 <launch>
 
-  <arg name="x" default="0.0" />
+  <arg name="x" default="-0.2" />
   <arg name="y" default="0.0" />
   <arg name="z" default="0.0" />
-  <arg name="yaw" default="0.0" />
+  <arg name="yaw" default="1.5707" />
 
   <!-- Setup controllers -->
   <rosparam file="$(find fetch_gazebo)/config/default_controllers.yaml" command="load" />

@@ -1,0 +1,13 @@
+material qrcube/Diffuse
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture ../textures/Screenshot_202023-10-03_20142633.png
+      }            
+    }
+  }
+}

@@ -30,7 +30,7 @@
 	 <include file="$(find fetch_follow_qrturtle)/launch/sdf_spawner.launch">
 		<arg name="robot_name" value="turtlebot3_burger" />
 		<arg name="x" value="0.0" />
-		<arg name="y" value="4.0" />
+		<arg name="y" value="2.0" />
 		<arg name="z" value="0" />
 		<arg name="roll" value="0"/>
 		<arg name="pitch" value="0"/>
@@ -63,8 +63,9 @@
 
   <!-- spawn fetch robot -->
   <include file="$(find fetch_follow_qrturtle)/launch/include/fetch.launch.xml" />
+  
 
-
+ <param name="robot_description" command="$(find xacro)/xacro.py $(find fetch_gazebo)/robots/fetch.gazebo.xacro" />
 
 
 	<!-- start with empty world -->

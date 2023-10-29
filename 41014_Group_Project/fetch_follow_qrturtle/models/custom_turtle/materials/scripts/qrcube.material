@@ -1,0 +1,14 @@
+material qrcube
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture ../textures/new.png
+		scale 1 1
+      }            
+    }
+  }
+}
