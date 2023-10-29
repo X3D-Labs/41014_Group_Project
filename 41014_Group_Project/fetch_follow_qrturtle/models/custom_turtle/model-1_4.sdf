@@ -7,12 +7,12 @@
       <inertial>
         <pose>-0.032 0 0.070 0 0 0</pose>
         <inertia>
-          <ixx>0.001</ixx>
-          <ixy>0.000</ixy>
-          <ixz>0.000</ixz>
-          <iyy>0.001</iyy>
-          <iyz>0.000</iyz>
-          <izz>0.001</izz>
+          <ixx>0.00717896</ixx>
+          <ixy>-1.22941e-05</ixy>
+          <ixz>0.00057674</ixz>
+          <iyy>0.00721804</iyy>
+          <iyz>-5.01209e-06</iyz>
+          <izz>0.00413858</izz>
         </inertia>
         <mass>1.0</mass>
       </inertial>
@@ -84,8 +84,8 @@
     <pose>-0.03533 0.002014 0.732871 1.5e-05 -0.007706 -5.2e-05</pose>
     <geometry>
       <mesh>
-        <uri>model://custom_turtle/meshes/qrcube.dae</uri>
-        <scale>1 1 1</scale>
+        <uri>model://custom_turtle/meshes/arucocube.dae</uri>
+        <scale>2.5 2.5 2.5</scale>
       </mesh>
     </geometry>
 
@@ -96,7 +96,7 @@
           <script>
             <uri>model://custom_turtle/materials/scripts</uri>
             <uri>model://custom_turtle/materials/textures</uri>
-            <name>qrcube</name>
+            <name>arucocube</name>
           </script>
             <shader type='vertex'>
             <normal_map>__default__</normal_map>
@@ -309,10 +309,10 @@
     </joint>
     <plugin name="differential_drive_controller"     filename="libgazebo_ros_diff_drive.so">
     <alwaysOn>true</alwaysOn>
-    <updateRate>10</updateRate>
-    <leftJoint>right_wheel_joint</leftJoint> 
+    <updateRate>30</updateRate>
+    <leftJoint>left_wheel_joint</leftJoint> 
     <!-- matching your left joint name -->
-    <rightJoint>left_wheel_joint</rightJoint>
+    <rightJoint>right_wheel_joint</rightJoint>
     <!-- matching your right joint name -->
     <wheelSeparation>0.5380</wheelSeparation>
     <wheelDiameter>0.2410</wheelDiameter>
@@ -321,7 +321,9 @@
     <!-- topic name published in the cpp file -->
     <odometryTopic>odom</odometryTopic>
     <odometryFrame>odom</odometryFrame>
-    <robotBaseFrame>base_footprint</robotBaseFrame>
+    <robotBaseFrame>base</robotBaseFrame>
+    <publishTf>1</publishTf>
+    <publishWheelJointState>1</publishWheelJointState>
   </plugin>
   </model>
 </sdf>

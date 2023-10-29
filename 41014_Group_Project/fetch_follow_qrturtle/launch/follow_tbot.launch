@@ -1,6 +1,6 @@
 <launch>
     <!-- Adjust arguments -->
-    <arg name="markerId"        default="369"/>
+    <arg name="markerId"        default="582"/>
     <arg name="markerSize"      default="0.36"/>    <!-- in m -->
     <arg name="eye"             default="/head_camera/rgb/"/>
     <arg name="marker_frame"    default="aruco_marker_frame"/>

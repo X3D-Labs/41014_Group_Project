@@ -30,7 +30,7 @@
 	 <include file="$(find fetch_follow_qrturtle)/launch/sdf_spawner.launch">
 		<arg name="robot_name" value="turtlebot3_burger" />
 		<arg name="x" value="0.0" />
-		<arg name="y" value="2.0" />
+		<arg name="y" value="-2.0" />
 		<arg name="z" value="0" />
 		<arg name="roll" value="0"/>
 		<arg name="pitch" value="0"/>
@@ -42,18 +42,10 @@
 
 	
 	</group>
+
+	<!-- change turtlebot to teleop -->
 <arg name="teleop_topic" default="/turtlebot3_burger/cmd_vel"/> 
 
-
-	 <!-- spawn turtlebot
-	<group ns="turtle_burger">
-	<param name="robot_description" command="$(find xacro)/xacro inorder $(find fetch_follow_qrturtle)/robots/turtlebot3_$(arg model).urdf.xacro"/> 
-	<node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -R $(arg roll) -P $(arg pitch) -Y 1.5707 -param robot_description" />
-	 -->
- 	<!-- <arg name="teleop_topic" default="/turtle_burger/cmd_vel"/>  -->
-	<!-- </group> -->
-
-	 <!-- Change turtlebot to teleop -->
 
 
 
@@ -70,7 +62,7 @@
 
 	<!-- start with empty world -->
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
-	<arg name="world_name" value="$(find fetch_follow_qrturtle)/worlds/basic.world"/>
+	<arg name="world_name" value="$(find fetch_follow_qrturtle)/worlds/env.world"/>
  	<arg name="paused" value="false"/>
  	<arg name="use_sim_time" value="true"/>
 	<arg name="gui" value="true"/>

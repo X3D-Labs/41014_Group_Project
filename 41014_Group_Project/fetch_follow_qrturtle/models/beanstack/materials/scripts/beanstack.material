@@ -1,0 +1,13 @@
+material beanstack/Diffuse
+{
+  technique
+  {
+    pass
+    {      
+      texture_unit
+      {
+        texture ../textures/beans.png
+      }            
+    }
+  }
+}
