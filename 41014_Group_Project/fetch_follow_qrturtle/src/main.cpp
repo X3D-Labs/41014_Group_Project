@@ -9,12 +9,13 @@
  * 
  */
 
+// Include header files
 #include "ros/ros.h"
 #include "../include/followTurtlebot.h"
 
 #include <thread>
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) // Main function
 {
     ros::init(argc, argv, "followTurtlebot");
     ros::NodeHandle nh;

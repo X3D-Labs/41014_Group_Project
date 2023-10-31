@@ -9,14 +9,15 @@
  * 
  */
 
+// Include the header file
 #include "../include/scanEnvironment.h"
 
-scanningEnvironment::scanningEnvironment(ros::NodeHandle nh) : nh_(nh)
+scanningEnvironment::scanningEnvironment(ros::NodeHandle nh) : nh_(nh) // Constructor
 {
     sub1_ = nh_.subscribe("/base_scan_raw", 10, &scanningEnvironment::CallBackLaser, this);
 }
 
-void scanningEnvironment::programStatus()
+void scanningEnvironment::programStatus() // Function to display the program status
 {
     while(ros::ok())
     {
@@ -32,7 +33,7 @@ void scanningEnvironment::programStatus()
 
 }
 
-void scanningEnvironment::CallBackLaser(const sensor_msgs::LaserScanConstPtr &msg)
+void scanningEnvironment::CallBackLaser(const sensor_msgs::LaserScanConstPtr &msg) // Callback function for the laser
 {
     obstacle_detected_ = laserDetecion_.obstacleDetetcion(msg);
     laser_readings_ = laserDetection_.readLaserValue(msg);
