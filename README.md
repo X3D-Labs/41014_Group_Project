@@ -106,4 +106,3 @@ to visualise sensor and message data
 
 ## Video link:
 
-[![Project Video](http://img.youtube.com/vi/7YKrIZX7De0/0.jpg)](https://www.youtube.com/watch?v=7YKrIZX7De0&ab_channel=DougGriffith)
