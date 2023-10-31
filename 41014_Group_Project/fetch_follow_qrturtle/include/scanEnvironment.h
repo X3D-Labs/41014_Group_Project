@@ -11,7 +11,7 @@
 
 #ifndef SCAN_ENVIRONMENT_H
 #define SCAN_ENVIRONMENT_H
-
+// Include header files
 #include <chrono>
 #include <string>
 #include <cmath>

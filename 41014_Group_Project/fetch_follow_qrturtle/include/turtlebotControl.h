@@ -11,14 +11,14 @@
 
 #ifndef INCLUDE_TURTLEBOTCONTROL_H_
 #define INCLUDE_TURTLEBOTCONTROL_H_
-
+// Include header files
 #include "ros/ros.h"
 #include <thread>
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/Joy.h"
 #include "std_msgs/Float64.h"
 
-class TurtlebotControl
+class TurtlebotControl // Class to allow control of turtlebot
 {
     public:
 

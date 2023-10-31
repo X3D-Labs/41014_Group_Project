@@ -11,22 +11,22 @@
  * 
  */
 
-#ifndef FETCHLASERSCAN_H
-#define FETCHLASERSCAN_H
+#ifndef FETCHLASERSCAN_H 
+#define FETCHLASERSCAN_H 
 
-#include <sensor_msgs/LaserScan.h>
+#include <sensor_msgs/LaserScan.h> // Include laser scan message
 
-class laserScanning
+class laserScanning // Class for laser scanning
 {
 private:
-    double laserReading; /*Stores data for laser values*/
+    double laserReading; // Stores data for laser values
 public:
 
-    laserScanning();
+    laserScanning(); // Constructor
 
-    bool obstacleDetection(sensor_msgs::LaserScan::ConstPtr fetchLaserScan);
+    bool obstacleDetection(sensor_msgs::LaserScan::ConstPtr fetchLaserScan); // Function to detect obstacles
 
-    double readLaserValue(sensor_msgs::LaserScan::ConstPtr fetchLaserScan);
+    double readLaserValue(sensor_msgs::LaserScan::ConstPtr fetchLaserScan); // Function to read laser values
 }  ;  
 
 #endif //FETCHLASERSCAN_H

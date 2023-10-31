@@ -11,9 +11,10 @@
  *
  */
 
-#ifndef TURTLEBOT_FOLLOW_H
-#define TURTLEBOT_FOLLOW_H
+#ifndef TURTLEBOT_FOLLOW_H  
+#define TURTLEBOT_FOLLOW_H 
 
+// Include header files
 #include <chrono>
 #include <vector>
 #include <cmath>
@@ -24,29 +25,30 @@
 #include "sensor_msgs/LaserScan.h"
 #include "tf2_msgs/TFMessage.h"
 
-class followTurtlebot
+class followTurtlebot // Class for fetch to follow the turtlebot
 {
 private:
-    ros::NodeHandle nh_;
+    // ROS Variables
+    ros::NodeHandle nh_; 
 
-    ros::Publisher pub_vel_;
-    ros::Subscriber sub_marker_;
-    ros::Subscriber sub_laser_;
-    geometry_msgs::Twist twistMsg_;
-    ros::Subscriber pose_tracker_;
-    ros::Time start_time_;
-    ros::Duration duration_;
+    ros::Publisher pub_vel_; 
+    ros::Subscriber sub_marker_; 
+    ros::Subscriber sub_laser_; 
+    geometry_msgs::Twist twistMsg_; 
+    ros::Subscriber pose_tracker_; 
+    ros::Time start_time_; 
+    ros::Duration duration_; 
 
-    laserScanning laserScanning_;
-
-    double laser_readings_;
-    bool obstacle_detected_;
-    bool obstacle_reported_;
-    bool search_reported_;
-    bool sweep_complete_;
+    laserScanning laserScanning_; 
+    // Variables
+    double laser_readings_; 
+    bool obstacle_detected_; 
+    bool obstacle_reported_; 
+    bool search_reported_; 
+    bool sweep_complete_; 
     tf2_msgs::TFMessageConstPtr pose_fetch_;
 
-    struct Marker
+    struct Marker // Structure for the marker
     {
         geometry_msgs::Vector3Stamped pose;
         double threshold_distance;
@@ -56,7 +58,7 @@ private:
         bool reached;
     };
 
-    Marker marker_;
+    Marker marker_; // Object of the structure
 
     public : 
     
