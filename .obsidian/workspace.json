@@ -21,26 +21,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Group Project Deliverables.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "231fd8f8a15338fe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DONTREADME.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -106,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DONTREADME.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DONTREADME.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DONTREADME.md"
+                "file": "README.md"
               }
             }
           }
@@ -167,8 +155,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "231fd8f8a15338fe",
+  "active": "a9edaee68303749e",
   "lastOpenFiles": [
+    "Group Project Deliverables.md",
+    "README.md",
+    "DONTREADME.md",
     "41014_Group_Project/fetch_follow_qrturtle/robots/turtlebot3_burger.gazebo.xacro",
     "41014_Group_Project/fetch_follow_qrturtle/robots/turtlebot3_burger.urdf.xacro",
     "41014_Group_Project/fetch_follow_qrturtle/models/urdf",
@@ -180,18 +171,14 @@
     "41014_Group_Project/fetch_follow_qrturtle/models/target_box/materials/scripts/target_box.material",
     "41014_Group_Project/fetch_follow_qrturtle/models/target_box/materials/textures",
     "41014_Group_Project/fetch_follow_qrturtle/models/target_box/materials/scripts",
-    "41014_Group_Project/fetch_follow_qrturtle/models/target_box/materials",
     "41014_Group_Project/fetch_follow_qrturtle/models/custom_turtle/materials/textures/FollowMeSkinSat.002.png",
     "41014_Group_Project/fetch_follow_qrturtle/models/test_zone/meshes/building.png",
     "41014_Group_Project/fetch_follow_qrturtle/models/qr_cube/Screenshot 2023-10-03 142633.png",
     "41014_Group_Project/fetch_follow_qrturtle/models/custom_turtle/materials/textures/cubetexture.png",
     "Pasted image 20231011163811.png",
-    "Group Project Deliverables.md",
-    "DONTREADME.md",
     "41014_Group_Project/fetch_gazebo/models/test_zone/meshes/building.png",
     "41014_Group_Project/models/test_zone/meshes/building.png",
     "41014_Group_project/fetch_gazebo/models/test_zone/meshes/building.png",
-    "41014_Group_project/models/test_zone/meshes/building.png",
-    "README.md"
+    "41014_Group_project/models/test_zone/meshes/building.png"
   ]
 }

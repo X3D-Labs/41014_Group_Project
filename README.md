@@ -11,45 +11,83 @@
 
 The objective of this project is to design and implement a functioning robot operating system that uses the learnt state of control algorithms, RGB images, and depth imaging data, to command our fetch robot to follow a path. Our vision of success entails having a robot that is able to navigate a path in an office/corridor environment that can take inputs from artificial markers or patterns on the guider to ensure our fetchbot a swift and efficient traversal.
 
-## Scope
 
-The project proposes a multitude of tasks and presentation processes. That the team will deliver on to, design and create function code to, command a fetch robot to follow a path. Therefore, the scope of the project is as follows.
+## Install and use
 
-
-1. Calibrate the Fetch Robots cameras to gain the robots perspective from the guider 
-2. Use Data from the Robots RGB, and depth images for feedback 
-3. Develop and implement code that utilises the Robots Hardware to follow a path 
-4. Create a video demonstration, outlining what the project has achieved  
-5. Project teaser demo outlining the successes/mistakes observed when operating the robot 
-6. Q and A video
-
-### Proposed Flowchart of Scope
-![Flowchart](https://i.ibb.co/sFpbVPH/Picture1.jpg)
+### Dependencies
 
 
-## Deliverables
+#### Fetch & Turtlebot packages
 
-[For README brevity, the deliverables and deadlines can be found here](<Group Project Deliverables>)
+This package relies on the use of the fetch and turtle bot robots. to install their packages, input the below:
+
+```
+cd ~/catkin_ws/src/  
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git  
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git  
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git  
+cd ~/catkin_ws  
+catkin_make  
+source devel/setup.bash
+```
+  for the turtlebot, and 
+
+```
+cd ~/catkin_ws/src/  
+git clone https://github.com/fetchrobotics/fetch_gazebo.git  
+cd ~/catkin_ws  
+catkin_make  
+source devel/setup.bash
+```
+
+for the fetch.
+#### Aruco package
+
+As this package uses Aruco markers, you must install the aruco_ros package.
+to do this, input the below commands into a terminal.
+
+``` 
+	cd ~/catkin_ws/src
+	git clone -b melodic-devel https://github.com/pal-robotics/aruco_ros.git
+	catkin_make
+	source devel/setup.bash
+```
 
 
-## MATLAB, Python and ROS
+#### other dependencies
 
-This project will primarily use Python and MATLAB for computing, and ROS for all simulations. 
+During initialisation, you may find that the fetch teleoperation does not work. in that case, it may be a good idea to download the fetch gazebo package:
 
-[Follow the ROS installation guide here](http://wiki.ros.org/ROS/Installation)
-[Follow the Python Install Guide here](https://wiki.python.org/moin/BeginnersGuide/Download)
+`sudo apt-get install ros-melodic-fetch-gazebo-demo
+
+It may also be a good idea to download the vision packages so that you can visualise the collision detection system in action:
+
+`sudo apt-get install ros-melodic-rviz`
 
 
-### ROS Launch Files
+#### This Package
 
-Once ROS has been installed, the user can run the launch files by inputting 
+To install the package, just download this straight from github and slap it into your src file. once that is done, you can run:
 
-`roslaunch 41014_Group_Project basic.launch
-for the low-intensity simulation environment
-**or**
+```
+	cd ~/catkin_ws/src
+	catkin_make
+	source devel/setup.bash
+```
+### Operation
 
-`roslaunch 41014_Group_Project detailed.launch`
+Once the package has been installed, the user can run the launch files by inputting 
 
-for a more detailed and realistic simulation environment
+`roslaunch fetch_follow_qrturtle basic.launch
 
-This will launch our group's Fetch Simulation. 
+to run the follower code, you must run the follow_tbot launch file in a separate window. 
+`roslaunch fetch_follow_qrturtle follow_tbot.launch`
+
+This will launch our group's Fetch Simulation. You can also input
+```
+	cd ~/catkin_ws/src
+	rosrun rviz rviz -d fetch_follow_qrturtle/rviz/rviz_fetch.rviz
+```
+
+
+#
