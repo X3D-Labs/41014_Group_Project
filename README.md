@@ -88,6 +88,17 @@ This will launch our group's Fetch Simulation. You can also input
 	cd ~/catkin_ws/src
 	rosrun rviz rviz -d fetch_follow_qrturtle/rviz/rviz_fetch.rviz
 ```
+to visualise sensor and message data
 
+## Expected Simulation Behaviour
 
-#
+- The fetch robot follows the Aruco marker as it traverses through any environment so long as it is clearly detected by the Fetch's onboard camera.
+
+- If the Aruco marker is not detected, the Fetch robot will rotate back and forth until it detects the marker again.
+	- if the guider is not found, the fetch will stop moving altogether and wait for an Aruco marker to move into its RGB-D camera viea.
+- If the Aruco marker is closer than 1m away from the Fetch robot, the robot will reverse distance itself until it reaches the 1m minima.
+
+- If an obstacle is detected while the marker is in view, the Fetch will stop and wait for the marker to relocate.
+	- If an obstacle is detected while the marker is not in view, the fetch will back up 0.1m and scan the area for the aruco marker. 
+
+- The fetch marker can see multiple Aruco markers, however if they are not the exact aruco marker used in this package (aruco 582), they will not impact the Fetch's operation of the following task. 
