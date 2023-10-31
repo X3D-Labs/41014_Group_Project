@@ -104,7 +104,7 @@ to visualise sensor and message data
 - The fetch marker can see multiple Aruco markers, however if they are not the exact aruco marker used in this package (Aruco 582), they will not impact the Fetch's operation of the following task. 
 
 
-## Video:
+## Video link:
 
 [![Project Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE "Video Title")
 
