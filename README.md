@@ -1,11 +1,11 @@
 # 41014 Group Project: Fetch Robot Following the Path
 
 
-| Student | Student ID|
-|-------|-------|
-|Sohail Tariq |13206901|
-|Lachlan Torres |13454881|
-|Doug Griffith| 13557121|
+| Student | Student ID| Contribution|
+|-------|-------|-----|
+|Sohail Tariq |13206901|30%|
+|Lachlan Torres |13454881|30%|
+|Doug Griffith| 13557121|30%
 
 ## Introduction
 
@@ -101,4 +101,10 @@ to visualise sensor and message data
 - If an obstacle is detected while the marker is in view, the Fetch will stop and wait for the marker to relocate.
 	- If an obstacle is detected while the marker is not in view, the fetch will back up 0.1m and scan the area for the aruco marker. 
 
-- The fetch marker can see multiple Aruco markers, however if they are not the exact aruco marker used in this package (aruco 582), they will not impact the Fetch's operation of the following task. 
+- The fetch marker can see multiple Aruco markers, however if they are not the exact aruco marker used in this package (Aruco 582), they will not impact the Fetch's operation of the following task. 
+
+
+## Video:
+
+[![Project Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE "Video Title")
+
